@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typo | Font-Size Fließtext wird nach goldenen Schnitt anhand H1 berechnet</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+    
+        /* ================================================
+    Idee: 
+    Typographische Regeln nach goldenen Schnitt automatisch anhand der h1 - h6 berechnen lassen 
+
+    Umgang: 
+    1. Siehe: ":root" -> Wert font-size - h1 ändern
+    (1rem = 10px | 3.2rem =32px)
+
+    Vorteil: 
+    1. Fließtext wird automatisch die Font-Size berechnet
+    2. Weitere Utilitys anlegen und flexibler sein.
+    3. MediaQueries brauch nur die Variable geändert werden
+    ==================================================*/
+    :root {
+      --fz-h1: 4.8rem; /* Schriftgröße hier ändern */
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 62.5%; /* 1rem = 10px */
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .container {
+      width: 400px;
+      min-height: auto;
+      margin: 300px auto;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: var(--fz-h1);
+      margin-bottom: 1rem;
+    }
+
+    /* ================================================
+    Berechnung des Paragraph`s anhand der "H1" 
+    nach Goldenen Schnitt 
+    (Bsp: h1 = 4.8rem / 1.618 = Summe -> Summe / 1.618) 
+    ==================================================*/
+
+    .goldenerschnitt {
+      font-size: calc(var(--fz-h1) /  2.617 );
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <h1>Überschrift</h1>
+    <p class="goldenerschnitt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae incidunt debitis ullam magni, atque illo labore iure quod? Asperiores eum natus debitis neque illum suscipit dicta, porro tenetur officia molestiae harum. Quis deleniti molestiae, vitae hic, numquam nisi tenetur dicta aut, debitis soluta sed quod iure necessitatibus neque id? Ad?</p>
+  </div> 
+  
+</body>
+</html>
