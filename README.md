@@ -9,7 +9,7 @@
     (1rem = 10px | 3.2rem =32px)
 
     Vorteil: 
-    1. Fließtext wird automatisch die Font-Size berechnet
+    1. Fließtext wird automatisch anhand der Font-Size berechnet
     2. Weitere Utilitys anlegen und flexibler sein.
     3. MediaQueries brauch nur die Variable geändert werden
     ===========================================================================================*/
